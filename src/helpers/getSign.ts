@@ -1,4 +1,4 @@
-const getSign = ({ dia, mes }: { dia: number; mes: number }) => {
+const getSign = (dia: number, mes: number) => {
   if ((dia >= 21 && mes === 3) || (dia <= 20 && mes === 4)) return "Aries";
   if ((dia >= 24 && mes === 9) || (dia <= 23 && mes === 10)) return "Libra";
   if ((dia >= 21 && mes === 4) || (dia <= 21 && mes === 5)) return "Tauro";

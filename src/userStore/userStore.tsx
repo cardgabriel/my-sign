@@ -46,9 +46,7 @@ const useStore = create<IUser>((set) => ({
 
   handlerSign: (birthday) => {
     const birthdayDate = new Date(birthday);
-    const month = birthdayDate.getMonth();
-    const day = birthdayDate.getDate();
-    const signUser = getSign({ dia: day, mes: month });
+    const signUser = getSign(birthdayDate.getDate(), birthdayDate.getMonth());
     set((state) => ({
       user: { ...state.user, sign: signUser },
     }));

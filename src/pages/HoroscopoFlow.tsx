@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
 import DatosStep from "../components/DatosStep";
-import GeneroStep from "../components/GeneroStep";
 import HoroscopoStep from "../components/HoroscopoStep";
 import HoroscopoStepper from "../components/HoroscopoStepper";
 import ProcessLayout from "../components/ProcessLayout";
 
 enum STEPS {
-  genero,
   datos,
   horoscopo,
 }
 
 const Stepper: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(STEPS.genero);
+  const [currentStep, setCurrentStep] = useState(STEPS.datos);
   const [labelAppBar, setLabelAppBar] = useState<string>();
   const [labelStepper, setLabelStepper] = useState<string>();
 
   useEffect(() => {
-    if (currentStep === STEPS.genero) {
-      setLabelAppBar("TU GÉNERO");
-      setLabelStepper("Ingresa tu género");
-    } else if (currentStep === STEPS.datos) {
+    if (currentStep === STEPS.datos) {
       setLabelAppBar("TUS DATOS");
       setLabelStepper("Ingresa tus datos");
     } else if (currentStep === STEPS.horoscopo) {
@@ -46,9 +41,6 @@ const Stepper: React.FC = () => {
           length={stepsLength}
           label={labelStepper}
         />
-      )}
-      {currentStep === STEPS.genero && (
-        <GeneroStep onNext={() => setCurrentStep(STEPS.datos)} />
       )}
       {currentStep === STEPS.datos && (
         <DatosStep

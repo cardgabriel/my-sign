@@ -9,13 +9,11 @@ interface IUser {
     birthday: string;
     email: string;
     picture: any;
-    gender: string;
     sign: string | undefined;
   };
   handlerName: (name: string) => void;
   handlerBirthday: (birthday: string) => void;
   handlerEmail: (email: string) => void;
-  handlerGender: (gender: string) => void;
   handlerSign: (birthday: string) => void;
   getRandomPicture: () => void;
   resetUser: () => void;
@@ -28,7 +26,6 @@ const useStore = create<IUser>((set) => ({
     name: "",
     birthday: "",
     email: "",
-    gender: "",
     sign: "",
   },
 
@@ -40,9 +37,6 @@ const useStore = create<IUser>((set) => ({
 
   handlerEmail: (email) =>
     set((state) => ({ user: { ...state.user, email: email } })),
-
-  handlerGender: (gender) =>
-    set((state) => ({ user: { ...state.user, gender: gender } })),
 
   handlerSign: (birthday) => {
     const birthdayDate = new Date(birthday);
@@ -66,7 +60,6 @@ const useStore = create<IUser>((set) => ({
         name: "",
         birthday: "",
         email: "",
-        gender: "",
         sign: "",
       },
     }),

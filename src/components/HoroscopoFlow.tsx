@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import DatosStep from "../components/DatosStep";
-import HoroscopoStep from "../components/HoroscopoStep";
 import HoroscopoStepper from "../components/HoroscopoStepper";
 import ProcessLayout from "../components/ProcessLayout";
+import DatosStep from "./steps/DatosStep";
+import HoroscopoStep from "./steps/HoroscopoStep";
 
 enum STEPS {
   datos,

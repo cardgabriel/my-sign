@@ -1,4 +1,3 @@
-import axios from "axios";
 import create from "zustand";
 import getSign from "../helpers/getSign";
 
@@ -8,21 +7,18 @@ interface IUser {
     name: string;
     birthday: string;
     email: string;
-    picture: any;
     sign: string | undefined;
   };
   handlerName: (name: string) => void;
   handlerBirthday: (birthday: string) => void;
   handlerEmail: (email: string) => void;
   handlerSign: (birthday: string) => void;
-  getRandomPicture: () => void;
   resetUser: () => void;
 }
 
 /* STORE */
 const useStore = create<IUser>((set) => ({
   user: {
-    picture: {},
     name: "",
     birthday: "",
     email: "",
@@ -46,17 +42,9 @@ const useStore = create<IUser>((set) => ({
     }));
   },
 
-  getRandomPicture: async () => {
-    const { data } = await axios.get("https://randomuser.me/api/?inc=picture");
-    set((state) => ({
-      user: { ...state.user, picture: data.results[0].picture.large },
-    }));
-  },
-
   resetUser: () =>
     set({
       user: {
-        picture: {},
         name: "",
         birthday: "",
         email: "",

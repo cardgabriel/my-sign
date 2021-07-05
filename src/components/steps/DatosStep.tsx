@@ -1,13 +1,13 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import pxToRem from "../helpers/pxToRem";
-import useStore from "../userStore/userStore";
 import { Box } from "@material-ui/core";
 import Button from "@material-ui/core/Button/Button";
 import { Theme } from "@material-ui/core/styles/createMuiTheme";
 import createStyles from "@material-ui/core/styles/createStyles";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import TextField from "@material-ui/core/TextField/TextField";
+import useStore from "../../userStore/userStore";
+import pxToRem from "../../helpers/pxToRem";
 
 interface IFormInput {
   name: string;
@@ -40,7 +40,7 @@ const DatosStep: React.FC<IDatosStep> = ({ onNext, onBack }) => {
 
   return (
     <Box px={pxToRem(20)}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
         <Controller
           name="name"
           control={control}
@@ -86,7 +86,7 @@ const DatosStep: React.FC<IDatosStep> = ({ onNext, onBack }) => {
           defaultValue=""
           render={({ field: { onChange, value }, fieldState: { error } }) => (
             <TextField
-              label="Email"
+              label=""
               variant="outlined"
               value={value}
               onChange={onChange}
@@ -136,6 +136,11 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: pxToRem(5),
       marginRight: pxToRem(5),
       width: pxToRem(120),
+    },
+    form: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     },
   })
 );

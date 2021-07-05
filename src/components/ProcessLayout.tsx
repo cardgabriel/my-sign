@@ -8,7 +8,6 @@ import createStyles from "@material-ui/core/styles/createStyles";
 import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 import IconButton from "@material-ui/core/IconButton/IconButton";
 import Typography from "@material-ui/core/Typography/Typography";
-import { Link } from "react-router-dom";
 
 interface IProcessLayout {
   label: any;
@@ -25,13 +24,6 @@ const ProcessLayout: React.FC<IProcessLayout> = ({
   return (
     <AppBar position="sticky" className={classes.appBarRoot}>
       <Toolbar className={classes.toolBar}>
-        {currentStep === 0 && (
-          <Link to="/">
-            <IconButton aria-label="back icon" className={classes.iconButton}>
-              <ArrowBackIosOutlinedIcon />
-            </IconButton>
-          </Link>
-        )}
         {currentStep !== 0 && (
           <IconButton
             onClick={onBackClick}
@@ -60,10 +52,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     toolBar: {
       display: "flex",
-      justifyContent: "space-between",
     },
     label: {
       color: theme.palette.common.white,
+      marginLeft: "auto"
     },
     iconButton: {
       color: theme.palette.common.white,

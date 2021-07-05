@@ -7,8 +7,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography/Typography";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import pxToRem from "../helpers/pxToRem";
-import useStore from "../userStore/userStore";
+import pxToRem from "../../helpers/pxToRem";
+import useStore from "../../userStore/userStore";
 
 const HoroscopoStep: React.FC = () => {
   const user = useStore((state) => state.user);

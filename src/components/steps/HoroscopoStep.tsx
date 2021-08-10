@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Box from "@material-ui/core/Box/Box";
 import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
 import Divider from "@material-ui/core/Divider/Divider";
@@ -5,21 +7,18 @@ import { Theme } from "@material-ui/core/styles/createMuiTheme";
 import createStyles from "@material-ui/core/styles/createStyles";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography/Typography";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import pxToRem from "../../helpers/pxToRem";
 import useStore from "userStore/userStore";
+import pxToRem from "helpers/pxToRem";
 
 const HoroscopoStep: React.FC = () => {
   const user = useStore((state) => state.user);
   const [horoscopo, setHoroscopo] = useState<any>();
 
-  const fetchHoroscopo = async () => {
-    const response = await axios.get("https://api.adderou.cl/tyaas/");
-    setHoroscopo(response.data.horoscopo);
-  };
-
   useEffect(() => {
+    const fetchHoroscopo = async () => {
+      const response = await axios.get("https://api.adderou.cl/tyaas/");
+      setHoroscopo(response.data.horoscopo);
+    };
     fetchHoroscopo();
   }, []);
 

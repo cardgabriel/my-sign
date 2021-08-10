@@ -7,7 +7,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import createStyles from "@material-ui/core/styles/createStyles";
 import { Theme } from "@material-ui/core/styles/createMuiTheme";
 import Box from "@material-ui/core/Box/Box";
-import pxToRem from "../helpers/pxToRem";
+import pxToRem from "helpers/pxToRem";
 
 interface IStepperSign {
   activeStep: any;

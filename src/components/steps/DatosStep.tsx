@@ -6,8 +6,8 @@ import { Theme } from "@material-ui/core/styles/createMuiTheme";
 import createStyles from "@material-ui/core/styles/createStyles";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import TextField from "@material-ui/core/TextField/TextField";
-import useStore from "../../userStore/userStore";
-import pxToRem from "../../helpers/pxToRem";
+import useStore from "userStore/userStore";
+import pxToRem from "helpers/pxToRem";
 
 interface IFormInput {
   name: string;

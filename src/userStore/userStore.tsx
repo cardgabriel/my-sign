@@ -16,14 +16,16 @@ interface IUser {
   resetUser: () => void;
 }
 
+const EMPTY_USER = {
+  name: "",
+  birthday: "",
+  email: "",
+  sign: "",
+};
+
 /* STORE */
 const useStore = create<IUser>((set) => ({
-  user: {
-    name: "",
-    birthday: "",
-    email: "",
-    sign: "",
-  },
+  user: EMPTY_USER,
 
   handlerName: (name) =>
     set((state) => ({ user: { ...state.user, name: name } })),
@@ -42,15 +44,7 @@ const useStore = create<IUser>((set) => ({
     }));
   },
 
-  resetUser: () =>
-    set({
-      user: {
-        name: "",
-        birthday: "",
-        email: "",
-        sign: "",
-      },
-    }),
+  resetUser: () => set({ user: EMPTY_USER }),
 }));
 
 export default useStore;

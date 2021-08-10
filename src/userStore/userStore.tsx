@@ -7,7 +7,7 @@ interface IUser {
     name: string;
     birthday: string;
     email: string;
-    sign: string | undefined;
+    sign: string;
   };
   handlerName: (name: string) => void;
   handlerBirthday: (birthday: string) => void;
@@ -38,13 +38,15 @@ const useStore = create<IUser>((set) => ({
 
   handlerSign: (birthday) => {
     const birthdayDate = new Date(birthday);
-    const signUser = getSign(birthdayDate.getDate() + 1, birthdayDate.getMonth() + 1);
-    set((state) => ({
-      user: { ...state.user, sign: signUser },
-    }));
+    const signUser = getSign(
+      birthdayDate.getDate() + 1,
+      birthdayDate.getMonth() + 1
+    );
+    set((state) => ({ user: { ...state.user, sign: signUser } }));
   },
 
   resetUser: () => set({ user: EMPTY_USER }),
+  
 }));
 
 export default useStore;

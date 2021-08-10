@@ -11,6 +11,7 @@ const getSign = (dia: number, mes: number) => {
   if ((dia >= 21 && mes === 1) || (dia <= 19 && mes === 2)) return "Acuario";
   if ((dia >= 24 && mes === 8) || (dia <= 23 && mes === 9)) return "Virgo";
   if ((dia >= 20 && mes === 2) || (dia <= 20 && mes === 3)) return "Piscis";
+  else return ""
 };
 
 export default getSign;

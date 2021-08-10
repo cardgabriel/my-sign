@@ -23,6 +23,9 @@ const HoroscopoStep: React.FC = () => {
   }, []);
 
   const classes = useStyles();
+  console.log(user);
+  console.log(horoscopo);
+  console.log(horoscopo && user && horoscopo[user.sign.toLowerCase()]);
 
   return (
     <Box
@@ -41,7 +44,7 @@ const HoroscopoStep: React.FC = () => {
             className={classes.typography}
             align="left"
           >
-            SALUD: {horoscopo?.aries.salud}
+            SALUD: {horoscopo[user.sign.toLowerCase()].salud}
           </Typography>
           <Divider variant="fullWidth" />
           <Typography
@@ -49,7 +52,7 @@ const HoroscopoStep: React.FC = () => {
             className={classes.typography}
             align="left"
           >
-            AMOR: {horoscopo?.aries.amor}
+            AMOR: {horoscopo[user.sign.toLowerCase()].amor}
           </Typography>
           <Divider variant="fullWidth" />
           <Typography
@@ -57,7 +60,7 @@ const HoroscopoStep: React.FC = () => {
             className={classes.typography}
             align="left"
           >
-            DINERO: {horoscopo?.aries.dinero}
+            DINERO: {horoscopo[user.sign.toLowerCase()].dinero}
           </Typography>
         </>
       )}

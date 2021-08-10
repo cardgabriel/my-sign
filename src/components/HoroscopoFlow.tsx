@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import HoroscopoStepper from "../components/HoroscopoStepper";
-import ProcessLayout from "../components/ProcessLayout";
+import Navbar from "./Navbar";
+import StepperSign from "./StepperSign";
 import DatosStep from "./steps/DatosStep";
 import HoroscopoStep from "./steps/HoroscopoStep";
 
@@ -28,7 +28,7 @@ const Stepper: React.FC = () => {
 
   return (
     <>
-      <ProcessLayout
+      <Navbar
         currentStep={currentStep}
         onBackClick={() => {
           setCurrentStep(currentStep - 1);
@@ -36,7 +36,7 @@ const Stepper: React.FC = () => {
         label={labelAppBar}
       />
       {currentStep !== STEPS.horoscopo && (
-        <HoroscopoStepper
+        <StepperSign
           activeStep={currentStep}
           length={stepsLength}
           label={labelStepper}

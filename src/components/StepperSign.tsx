@@ -9,13 +9,13 @@ import { Theme } from "@material-ui/core/styles/createMuiTheme";
 import Box from "@material-ui/core/Box/Box";
 import pxToRem from "../helpers/pxToRem";
 
-interface IStepper {
+interface IStepperSign {
   activeStep: any;
   length: number;
   label: string | undefined;
 }
 
-const HoroscopoStepper: React.FC<IStepper> = ({
+const StepperSign: React.FC<IStepperSign> = ({
   activeStep,
   length,
   label,
@@ -37,7 +37,7 @@ const HoroscopoStepper: React.FC<IStepper> = ({
   );
 };
 
-export default HoroscopoStepper;
+export default StepperSign;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

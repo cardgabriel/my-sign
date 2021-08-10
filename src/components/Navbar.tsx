@@ -1,5 +1,4 @@
 import React from "react";
-
 import AppBar from "@material-ui/core/AppBar/AppBar";
 import Toolbar from "@material-ui/core/Toolbar/Toolbar";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -9,13 +8,13 @@ import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 import IconButton from "@material-ui/core/IconButton/IconButton";
 import Typography from "@material-ui/core/Typography/Typography";
 
-interface IProcessLayout {
+interface INavbar {
   label: any;
   onBackClick: () => void;
   currentStep: number;
 }
 
-const ProcessLayout: React.FC<IProcessLayout> = ({
+const Navbar: React.FC<INavbar> = ({
   label,
   onBackClick,
   currentStep,
@@ -42,7 +41,7 @@ const ProcessLayout: React.FC<IProcessLayout> = ({
   );
 };
 
-export default ProcessLayout;
+export default Navbar;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
